@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2f6721df7d9b1144ca4cf01bd913b0e0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - foodiePrefub: {fileID: 5004505151869686687, guid: e81ba9bc0016d46408785767094981b0, type: 3}
+  - borderHorizontalTop: {instanceID: 0}
+  - borderHorizontalBottom: {instanceID: 0}
+  - borderVerticalRight: {instanceID: 0}
+  - borderVerticalLeft: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
