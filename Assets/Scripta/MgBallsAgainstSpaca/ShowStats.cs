@@ -1,27 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
-public class HealthBar : MonoBehaviour
+public class ShowStats : MonoBehaviour
 {
     public Sprite notSoFullHeart;
     public Sprite fullHeart;
-    Int32 currentShownLifes;
+    private Int32 currentShownLifes;
+    private Int32 score;
+    private Text scoreText;
     // Start is called before the first frame update
     void Start()
     {
+        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         currentShownLifes = 5;
-        for(int i = 0; i < transform.childCount; i++)
+        score = 0;
+        for (int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = fullHeart;
+            if (transform.GetChild(i).tag == "Health")
+            {
+                transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = fullHeart;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        scoreText.text = "Score : " + score; 
     }
 
     public void TakeLife()
@@ -50,4 +58,11 @@ public class HealthBar : MonoBehaviour
         sprity.sprite = notSoFullHeart;
         currentShownLifes--;
     }
+
+    public void ScoreUp()
+    {
+        score++;
+    }
+
+    public Boolean IsGameOver() => currentShownLifes < 1;
 }

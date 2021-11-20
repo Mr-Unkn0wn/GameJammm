@@ -7,14 +7,14 @@ public class BallsMovingScript : MonoBehaviour
 {
 
     private float _speed = 10f;
-    private Boolean goWasGiven;
+    public Boolean isOutOfField;
     public Boolean wasDefended;
     public Boolean hasHitted;
     private Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
-        goWasGiven = true;
+        isOutOfField = false;
         wasDefended = false;
         direction = GetDirection();
     }
@@ -25,7 +25,7 @@ public class BallsMovingScript : MonoBehaviour
         Movement();
         if(transform.position.y <= -5)
         {
-            wasDefended = true;
+            isOutOfField = true;
         }
     }
     

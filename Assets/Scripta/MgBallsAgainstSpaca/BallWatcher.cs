@@ -9,45 +9,60 @@ public class BallWatcher : MonoBehaviour
     private Int32 killedHearts;
     public GameObject circlePrefab;
     private List<GameObject> enemyList = new List<GameObject>();
+    ShowStats statsHolder;
 
     // Start is called before the first frame update
     void Start()
     {
         killedHearts = 0;
         nextSpawnTime = 2.5f;
+        statsHolder = GameObject.Find("Statistiks").GetComponent<ShowStats>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        for(int index = 0; index < enemyList.Count; index++)
+        if (statsHolder.IsGameOver())
         {
-            GameObject heart = enemyList[index].transform.GetChild(0).gameObject;
-            if (heart.GetComponent<BallsMovingScript>().wasDefended)
-            {
-                Destroy(enemyList[index]);
-                enemyList.RemoveAt(index);
-                killedHearts++;
-            }
-            if (heart.GetComponent<BallsMovingScript>().hasHitted)
-            {
-                GameObject.Find("ShowHearts").GetComponent<HealthBar>().TakeLife();
-                Destroy(enemyList[index]);
-                enemyList.RemoveAt(index);
-            }
+
         }
-        if(Time.time > nextSpawnTime)
+        else
         {
-            Int32 number = (killedHearts / 20) + 1;
-            if(number > 10)
+            for (int index = 0; index < enemyList.Count; index++)
             {
-                nextSpawnTime += 0.5f;
-                SpawnCircles((int)(number/10));
+                BallsMovingScript heartScript = enemyList[index].transform.GetChild(0).gameObject.GetComponent<BallsMovingScript>();
+                if (heartScript.wasDefended)
+                {
+                    Destroy(enemyList[index]);
+                    enemyList.RemoveAt(index);
+                    killedHearts++;
+                    statsHolder.ScoreUp();
+                }
+                else if (heartScript.isOutOfField)
+                {
+                    Destroy(enemyList[index]);
+                    enemyList.RemoveAt(index);
+                }
+                else if (heartScript.hasHitted)
+                {
+                    statsHolder.TakeLife();
+                    Destroy(enemyList[index]);
+                    enemyList.RemoveAt(index);
+                }
             }
-            else
+            if (Time.time > nextSpawnTime)
             {
-                nextSpawnTime += 2.5f;
-                SpawnCircles(number);
+                Int32 number = (killedHearts / 20) + 1;
+                if (number > 10)
+                {
+                    nextSpawnTime += 0.5f;
+                    SpawnCircles((int)(number / 10));
+                }
+                else
+                {
+                    nextSpawnTime += 2.5f;
+                    SpawnCircles(number);
+                }
             }
         }
     }
