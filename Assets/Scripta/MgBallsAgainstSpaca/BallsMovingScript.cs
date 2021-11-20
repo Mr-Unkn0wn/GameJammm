@@ -5,7 +5,11 @@ using System;
 
 public class BallsMovingScript : MonoBehaviour
 {
-
+    public Sprite firstSprite;
+    public Sprite secondSprite;
+    public Sprite thirdSprite;
+    public Sprite fourthSprite;
+    public Sprite fifthSprite;
     private float _speed = 10f;
     public Boolean isOutOfField;
     public Boolean wasDefended;
@@ -17,6 +21,26 @@ public class BallsMovingScript : MonoBehaviour
         isOutOfField = false;
         wasDefended = false;
         direction = GetDirection();
+        Int32 randomNumber = UnityEngine.Random.Range(0,5);
+        SpriteRenderer sprity = GetComponent<SpriteRenderer>();
+        switch (randomNumber)
+        {
+            case 0:
+                sprity.sprite = firstSprite;
+                break;
+            case 1:
+                sprity.sprite = secondSprite;
+                break;
+            case 2:
+                sprity.sprite = thirdSprite;
+                break;
+            case 3:
+                sprity.sprite = fourthSprite;
+                break;
+            case 4:
+                sprity.sprite = fifthSprite;
+                break;
+        }
     }
 
     // Update is called once per frame
