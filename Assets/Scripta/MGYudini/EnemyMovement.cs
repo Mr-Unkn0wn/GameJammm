@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public GameObject destiny;
+    private GameObject destiny;
     public Vector3 forward;
     public float speed;
+
     void Start()
     {
-        
+        destiny = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame

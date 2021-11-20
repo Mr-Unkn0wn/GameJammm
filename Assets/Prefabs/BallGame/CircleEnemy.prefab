@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wasDefended: 0
+  hasHitted: 0
 --- !u!58 &727597687786381754
 CircleCollider2D:
   m_ObjectHideFlags: 0
