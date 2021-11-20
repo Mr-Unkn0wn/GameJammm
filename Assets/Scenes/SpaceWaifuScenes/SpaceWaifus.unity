@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 257b62c4302a840a59be3b4f1cdec769, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3940ae08d01c4d61b4b6281b28b61a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1834,7 +1834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca27d56c9c5449eb9124f947ea66b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primeInt: 1
+  primeInt: 0
   Char1Name: {fileID: 885260982}
   Char1speech: {fileID: 1466476015}
   Char2name: {fileID: 1807107770}
@@ -1845,6 +1845,8 @@ MonoBehaviour:
   ArtChar1: {fileID: 1805142956}
   ArtBG1: {fileID: 1418479419}
   Choice1a: {fileID: 313417754}
+  Choice1AText: {fileID: 334740049}
+  Choice1BText: {fileID: 1730799456}
   Choice1b: {fileID: 117193048}
   NextScene1Button: {fileID: 420177960}
   NextScene2Button: {fileID: 702150637}
@@ -1985,7 +1987,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 467ec27a371544464956c9bba9b78c38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0a78f458ed6824b88bc55c2b12fbdc14, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
