@@ -2,15 +2,17 @@ using System.Collections;
 //these two are important for the tail algo to work
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 //-------------------------------------
 using UnityEngine;
 
 public class snek : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // logic handler for snek mini game
     Vector2 dir = Vector2.right;
     List<Transform> tail = new List<Transform>();
     bool ate = false;
+    private int score = 0;
     public GameObject tailPrefab;
     void Start()
     {
@@ -59,6 +61,7 @@ public class snek : MonoBehaviour
             //move last tail to the prev pos of head
             tail.Last().position = currentPos;
             
+            
             //queue fron, pop tail
             tail.Insert(0, tail.Last());
             tail.RemoveAt(tail.Count - 1);
@@ -66,17 +69,31 @@ public class snek : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D coll) {
-        if (coll.name.StartsWith("foodiePrefub")) {
+        if (coll.name.StartsWith("foodiePrefub"))
+        {
             ate = true;
-            
+            score += 1;
             Destroy(coll.gameObject);
 
-            Debug.Log("supposed to collide with the prefab");
+            Debug.Log("Score " + score);
+            return;
         }
         // Collided with Tail or Border
-        else {
+        if (coll.name.StartsWith("border")){
             // ToDo 'You lose' screen
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAA");
+            score = 0;
+            Destroy(this);
+            return;
+        }
+        if (coll.name.StartsWith("tail"))
+        {
+            score = 0;
+            Destroy(this);
+            Debug.Log("Stop eating your tail, baka!! ><");
         }
     }
+
+    
+
+    
 }
