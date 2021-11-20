@@ -12,7 +12,6 @@ public class FlappyBirdController : MonoBehaviour
 
     // Start is called before the first frame update
 
-
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("HIT");
@@ -50,3 +49,5 @@ public class FlappyBirdController : MonoBehaviour
         return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
     }
 }
+
+//   <3
