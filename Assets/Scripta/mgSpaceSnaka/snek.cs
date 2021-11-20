@@ -2,9 +2,9 @@ using System.Collections;
 //these two are important for the tail algo to work
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 //-------------------------------------
 using UnityEngine;
+using UnityEngine.UI;
 
 public class snek : MonoBehaviour
 {
@@ -13,10 +13,16 @@ public class snek : MonoBehaviour
     List<Transform> tail = new List<Transform>();
     bool ate = false;
     private int score = 0;
+    public GameObject gameOverText;
     public GameObject tailPrefab;
+    public GameObject foodiePrefab;
+    public Text scoreBoard;
+    public bool isActive;
     void Start()
     {
+        isActive = true;
         InvokeRepeating("Move", 0.3f, 0.3f);
+        foodiePrefab.SetActive(true);
     }
 
     // Update is called once per frame
@@ -73,6 +79,7 @@ public class snek : MonoBehaviour
         {
             ate = true;
             score += 1;
+            scoreBoard.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
             Destroy(coll.gameObject);
 
             Debug.Log("Score " + score);
@@ -80,16 +87,20 @@ public class snek : MonoBehaviour
         }
         // Collided with Tail or Border
         if (coll.name.StartsWith("border")){
-            // ToDo 'You lose' screen
-            score = 0;
             Destroy(this);
+            isActive = false;
+            gameOverText.gameObject.SetActive(true);
+            foodiePrefab.SetActive(false);
             return;
         }
         if (coll.name.StartsWith("tail"))
         {
-            score = 0;
             Destroy(this);
             Debug.Log("Stop eating your tail, baka!! ><");
+            isActive = false;
+            gameOverText.gameObject.SetActive(true);
+            foodiePrefab.SetActive(false);
+            return;
         }
     }
 
