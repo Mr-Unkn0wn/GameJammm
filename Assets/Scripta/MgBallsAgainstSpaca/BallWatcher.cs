@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BallWatcher : MonoBehaviour
 {
+    private float nextSpawnTime;
+    private Int32 killedHearts;
+    public GameObject circlePrefab;
     private List<GameObject> enemyList = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
-        enemyList.Add(createCircleObject());
+        killedHearts = 0;
+        nextSpawnTime = 2.5f;
     }
 
     // Update is called once per frame
@@ -16,11 +22,32 @@ public class BallWatcher : MonoBehaviour
     {
         for(int index = 0; index < enemyList.Count; index++)
         {
-            if (enemyList[index].GetComponent<BallsMovingScript>().wasDefended)
+            GameObject heart = enemyList[index].transform.GetChild(0).gameObject;
+            if (heart.GetComponent<BallsMovingScript>().wasDefended)
             {
                 Destroy(enemyList[index]);
                 enemyList.RemoveAt(index);
-                SpawnCircles(2);
+                killedHearts++;
+            }
+            if (heart.GetComponent<BallsMovingScript>().hasHitted)
+            {
+                GameObject.Find("ShowHearts").GetComponent<HealthBar>().TakeLife();
+                Destroy(enemyList[index]);
+                enemyList.RemoveAt(index);
+            }
+        }
+        if(Time.time > nextSpawnTime)
+        {
+            Int32 number = (killedHearts / 20) + 1;
+            if(number > 10)
+            {
+                nextSpawnTime += 0.5f;
+                SpawnCircles((int)(number/10));
+            }
+            else
+            {
+                nextSpawnTime += 2.5f;
+                SpawnCircles(number);
             }
         }
     }
@@ -35,14 +62,9 @@ public class BallWatcher : MonoBehaviour
 
     private GameObject createCircleObject()
     {
-        GameObject nextObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        float xPosition = Random.value * 15 - 7.5f;
-        float yPosition = Random.value * 2 + 2;
-        nextObject.transform.position = new Vector3(xPosition, yPosition, 0);
-        nextObject.AddComponent<CircleCollider2D>();
-        nextObject.AddComponent<Rigidbody2D>();
-        nextObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-        nextObject.AddComponent<BallsMovingScript>();
+        float xPosition = UnityEngine.Random.value * 15 - 7.5f;
+        float yPosition = UnityEngine.Random.value * 4;
+        GameObject nextObject = Instantiate(circlePrefab, new Vector3(xPosition, yPosition, 0), Quaternion.identity);
         return nextObject;
     }
 }
