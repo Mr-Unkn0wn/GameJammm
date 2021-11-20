@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public GameObject destiny;
+    public Vector3 forward;
+    public float speed;
     void Start()
     {
         
@@ -13,24 +15,26 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.FromToRotation(transform.position, destiny.transform.position);
-        transform.Translate(GetDirection() * Time.deltaTime, 0);
-    }
+        Vector3 playerDest = destiny.transform.position;
 
-    private Vector2 GetDirection() 
-    { 
-  
-
-        float xDirection = destiny.transform.position.x - transform.position.x; 
-        float yDirection = destiny.transform.position.y - transform.position.y;
+        if (GetDistance(playerDest) > 0.3) 
+        transform.Translate(Vector3.up * speed * Time.deltaTime);
         
-        Vector2 result = new Vector3(xDirection, yDirection,0); 
-        if (result.magnitude < 0.5) 
-        {
-            return new Vector3(0, 0); 
-        } 
-   
-        return result.normalized; 
+        Vector3 direction = (playerDest - transform.position).normalized;
+        forward = direction;
+
+
+
+        transform.rotation = Quaternion.FromToRotation(Vector3.up, forward);
     }
+
+    public float GetDistance(Vector3 playerDest)
+    {
+        float distance = Mathf.Sqrt(Mathf.Pow(playerDest.x - transform.position.x, 2) + Mathf.Pow(playerDest.y - transform.position.y, 2));
+
+        return distance;
+    }
+
+
 
 }
