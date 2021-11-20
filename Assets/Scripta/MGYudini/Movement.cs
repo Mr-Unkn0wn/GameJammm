@@ -31,7 +31,8 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         player.velocity += playerVelo.normalized*speed - player.velocity*0.1f;
-    
+        
+
     }
 
  

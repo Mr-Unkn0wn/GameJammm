@@ -8,7 +8,7 @@ public class Bullets : MonoBehaviour
 
     public float bulletVelocity;
     public GameObject bullet1;
-
+    private float delay;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +20,9 @@ public class Bullets : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && delay < 0.01)
         {
+            delay = 0.3f;
             Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = (Vector2)((worldMousePos - transform.position));
             direction.Normalize();
@@ -30,15 +31,11 @@ public class Bullets : MonoBehaviour
             tmp.GetComponent<Rigidbody2D>().velocity = direction * bulletVelocity;
             var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            tmp.transform.rotation = Quaternion.AngleAxis(angle+90, Vector3.forward);
+            tmp.transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
             //tmp.AddComponent<MeshRenderer>();
 
-
-
-
         }
-    
-
+        else delay -= Time.deltaTime;
 
     }
 

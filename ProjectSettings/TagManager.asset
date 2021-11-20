@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - SaveZone
+  - Bullet
   layers:
   - Default
   - TransparentFX
