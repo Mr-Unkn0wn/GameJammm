@@ -9,53 +9,41 @@ public class BallsMovingScript : MonoBehaviour
     private float _speed = 10f;
     private Boolean goWasGiven;
     public Boolean wasDefended;
+    public Boolean hasHitted;
+    private Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
-        goWasGiven = false;
+        goWasGiven = true;
         wasDefended = false;
+        direction = GetDirection();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!goWasGiven)
+        Movement();
+        if(transform.position.y <= -5)
         {
-            goWasGiven = Input.GetKeyDown(KeyCode.H);
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                transform.position = new Vector3(-7.5f, 5f, 0f);
-                goWasGiven = false;
-            }
-            else
-            {
-                Movement();
-            }
+            wasDefended = true;
         }
     }
+    
 
     private Vector2 GetDirection()
     {
         GameObject destiny = GameObject.Find("PlayerObjects");
-        float xDirection = destiny.transform.position.x - transform.position.x;
-        float yDirection = destiny.transform.position.y - transform.position.y;
+        float xDirection = (destiny.transform.position.x - transform.position.x) * UnityEngine.Random.value * 2;
+        float yDirection = destiny.transform.position.y - transform.position.y * UnityEngine.Random.value * 2;
         Vector2 result = new Vector2(xDirection, yDirection);
-        if (result.magnitude < 0.5)
-        {
-            return new Vector2(0, 0);
-        }
         result.Normalize();
         return result;
     }
 
     private void Movement()
     {
-        Vector2 directionVector = GetDirection();
         {
-            transform.Translate(directionVector * _speed * Time.deltaTime);
+            transform.Translate(direction * _speed * Time.deltaTime);
         }
     }
 
@@ -64,6 +52,10 @@ public class BallsMovingScript : MonoBehaviour
         if (collision.tag == "Player")
         {
             wasDefended = true;
+        }
+        else if (collision.tag == "SaveZone")
+        {
+            hasHitted = true;
         }
     }
 }

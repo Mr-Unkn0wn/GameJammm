@@ -15,13 +15,24 @@ public class PlattformMoving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float movement = Input.GetAxis("Horizontal");
-        if (movement != 0.0)
+        float movementHor = Input.GetAxis("Horizontal");
+        if (movementHor != 0.0)
         {
             float speed = speedPerSecond * Time.deltaTime;
-            if (!(transform.position.x + (movement * speed) >= 7.5f) && !(transform.position.x + (movement * speed) <= -7.5f))
+            if (!(transform.position.x + (movementHor * speed) >= 5.0f) && !(transform.position.x + (movementHor * speed) <= -5.0f))
             {
-                Vector2 moveVector = new Vector2(movement, 0);
+                Vector2 moveVector = new Vector2(movementHor, 0);
+                moveVector *= speed;
+                transform.Translate(moveVector);
+            }
+        }
+        float movementVer = Input.GetAxis("Vertical");
+        if (movementVer != 0.0)
+        {
+            float speed = speedPerSecond * Time.deltaTime;
+            if (!(transform.position.y + (movementVer * speed) >= -2.0f) && !(transform.position.y + (movementVer * speed) <= -4.0f))
+            {
+                Vector2 moveVector = new Vector2(0, movementVer);
                 moveVector *= speed;
                 transform.Translate(moveVector);
             }
