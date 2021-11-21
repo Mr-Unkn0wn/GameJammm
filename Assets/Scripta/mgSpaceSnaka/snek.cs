@@ -18,11 +18,14 @@ public class snek : MonoBehaviour
     public GameObject foodiePrefab;
     public Text scoreBoard;
     public bool isActive;
+    public GameObject restartButton;
+    
     void Start()
     {
         isActive = true;
         InvokeRepeating("Move", 0.3f, 0.3f);
         foodiePrefab.SetActive(true);
+        restartButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -91,6 +94,7 @@ public class snek : MonoBehaviour
             isActive = false;
             gameOverText.gameObject.SetActive(true);
             foodiePrefab.SetActive(false);
+            restartButton.gameObject.SetActive(true);
             return;
         }
         if (coll.name.StartsWith("tail"))
@@ -100,11 +104,11 @@ public class snek : MonoBehaviour
             isActive = false;
             gameOverText.gameObject.SetActive(true);
             foodiePrefab.SetActive(false);
-            return;
+            restartButton.gameObject.SetActive(true);
         }
     }
 
-    
 
-    
+
+
 }
