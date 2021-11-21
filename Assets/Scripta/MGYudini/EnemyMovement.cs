@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     public Vector3 forward;
     public float speed;
     public Text myText;
+    public HealthSystem playerHealth;
    
 
     void Start()
@@ -72,6 +73,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
+            playerHealth.damagePlayer();
             
         }
        
