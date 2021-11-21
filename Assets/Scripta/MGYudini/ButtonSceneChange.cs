@@ -18,6 +18,6 @@ public class ButtonSceneChange : MonoBehaviour
         GameObject obj = GameObject.FindGameObjectWithTag("Score");
         Score tmp = obj.GetComponent<Score>();
         if (tmp.score < 15000) SceneManager.LoadScene("MG_YUDINI");
-        else SceneManager.LoadScene("WinnerScene");
+        else SceneManager.LoadScene("SpaceWaifu2");
     }
 }

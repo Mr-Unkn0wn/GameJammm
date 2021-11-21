@@ -65,7 +65,7 @@ public class DialougeDisplay3 : MonoBehaviour
                 Char2speech.text = "";
                 break;
             case 2:
-                SceneManager.LoadScene("Scenes/MGYudiniScenes/MG_Yudini");//Abwehr game
+                SceneManager.LoadScene("GameBallsFallin");//Abwehr game
                 break;
         }
     }

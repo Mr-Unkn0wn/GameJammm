@@ -142,7 +142,7 @@ public class DialougeDisplay2 : MonoBehaviour
                 Char2speech.text = "";
                 break;
             case 13:
-                SceneManager.LoadScene("Scenes/MGYudiniScenes/MG_Yudini");//zu Flappy bird
+                SceneManager.LoadScene("Unkn0wns-Scene");//zu Flappy bird
                 break;
 
         }

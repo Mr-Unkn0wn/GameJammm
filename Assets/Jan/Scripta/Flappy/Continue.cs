@@ -10,7 +10,7 @@ public class Continue : MonoBehaviour
     public Text text;
     public void Contin()
     {
-        if (int.Parse(text.text) > 250) SceneManager.LoadScene("");
+        if (int.Parse(text.text) > 250) SceneManager.LoadScene("SpaceWaifu3");
         else FlappyBirdController.lostGame = true;
 
 

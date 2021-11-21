@@ -84,7 +84,7 @@ public class DialougeDisplay4 : MonoBehaviour
                 Char2speech.text = "";
                 break;
             case 4:
-                SceneManager.LoadScene("Scenes/MGYudiniScenes/MG_Yudini"); //Timur
+                SceneManager.LoadScene("HifumiScene"); //Timur
                 break;
         }
     }
