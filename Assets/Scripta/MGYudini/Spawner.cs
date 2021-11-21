@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public GameObject enemy;
+    [SerializeField]
+    public Text text;
     private float spawnTime;
     private float spawndelay = 5;
     private int timer;
@@ -29,11 +32,11 @@ public class Spawner : MonoBehaviour
 
             
             int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-            Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+            Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation).GetComponent<EnemyMovement>().myText = text;
             for(int i = getSpawnpoints(); i >= 0; i--)
             {
                 spawnPointIndex = Random.Range(0, spawnPoints.Length);
-                Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+                Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation).GetComponent<EnemyMovement>().myText = text; ;
             }
         }
 

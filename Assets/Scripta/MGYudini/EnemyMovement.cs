@@ -2,20 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class EnemyMovement : MonoBehaviour
 {
    
     private LinkedList<GameObject> particles = new LinkedList<GameObject>();
     private GameObject destiny;
+    private static int points;
 
     public GameObject[] parts;
     public Vector3 forward;
     public float speed;
+    public Text myText;
+   
 
     void Start()
     {
         destiny = GameObject.FindGameObjectWithTag("Player");
+        
+      
     }
 
     // Update is called once per frame
@@ -58,13 +64,15 @@ public class EnemyMovement : MonoBehaviour
 
         if (collision.gameObject.tag != "Player")
         {
+            points += 200;
+            myText.text = "" + points;
             spawnParticles();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
         else
         {
-
+            
         }
        
     }

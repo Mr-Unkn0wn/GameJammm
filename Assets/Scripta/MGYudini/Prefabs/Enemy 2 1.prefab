@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 4343589824035313815, guid: f321b267379cc9e4c8a5a87d361ee520, type: 3}
   forward: {x: 0, y: 0, z: 0}
   speed: 5
+  text: {fileID: 1173916107645428858, guid: 7c6781cef1b7a364c9385f8614b79f59, type: 3}
 --- !u!61 &3164595923714422140
 BoxCollider2D:
   m_ObjectHideFlags: 0
