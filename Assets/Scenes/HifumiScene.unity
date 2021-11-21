@@ -270,6 +270,7 @@ MonoBehaviour:
   gameOverText: {fileID: 1978059232}
   tailPrefab: {fileID: 8473227910520348887, guid: 26f4a21a708d1e441bdb1cc4ba78b1db, type: 3}
   foodiePrefab: {fileID: 5004505151869686687, guid: e81ba9bc0016d46408785767094981b0, type: 3}
+  continueButton: {fileID: 340848533}
   scoreBoard: {fileID: 1218727939}
   isActive: 0
   restartButton: {fileID: 2060241747}
@@ -740,7 +741,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610338773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.56943, y: -1.1717876, z: 0}
+  m_LocalPosition: {x: 8.87, y: -1.1717876, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1418,7 +1419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010729899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.17, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

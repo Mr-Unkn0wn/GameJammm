@@ -21,7 +21,7 @@ public class snek : MonoBehaviour
     public Text scoreBoard;
     public bool isActive;
     public GameObject restartButton;
-    private int winScore = 10;
+    private int winScore = 2;
 
     void Start()
     {

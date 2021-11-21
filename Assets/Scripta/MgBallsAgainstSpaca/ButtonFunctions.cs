@@ -7,7 +7,7 @@ public class ButtonFunctions : MonoBehaviour
 {
     public void ChangeScene()
     {
-        if (GameObject.Find("Statistiks").GetComponent<ShowStats>().GetScore() >= 30)
+        if (GameObject.Find("Statistiks").GetComponent<ShowStats>().GetScore() >= 5)
         {
             SceneManager.LoadScene("Scenes/SpaceWaifuScenes/SpaceWaifus4");
         }
