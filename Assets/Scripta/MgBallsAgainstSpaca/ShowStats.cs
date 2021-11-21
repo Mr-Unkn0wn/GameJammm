@@ -67,4 +67,17 @@ public class ShowStats : MonoBehaviour
     public int GetScore() => score;
 
     public Boolean IsGameOver() => currentShownLifes < 1;
+
+    public void ResetGame()
+    {
+        currentShownLifes = 5;
+        score = 0;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).tag == "Health")
+            {
+                transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = fullHeart;
+            }
+        }
+    }
 }
