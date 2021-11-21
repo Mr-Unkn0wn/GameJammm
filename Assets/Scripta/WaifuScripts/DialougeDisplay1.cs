@@ -138,7 +138,7 @@ public class DialougeDisplay1 : MonoBehaviour
                 Char2speech.text = "";
                 break;
             case 12:
-                SceneManager.LoadScene("Scenes/MGYudiniScenes/MG_Yudini");
+                SceneManager.LoadScene("MG_Yudini");
                 break;
         }
     }
