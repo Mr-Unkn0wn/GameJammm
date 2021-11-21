@@ -138,53 +138,8 @@ public class DialougeDisplay1 : MonoBehaviour
                 Char2speech.text = "";
                 break;
             case 12:
-                SceneManager.LoadScene("");
+                SceneManager.LoadScene("Scenes/MGYudiniScenes/MG_Yudini");
                 break;
-            case 700:
-                ArtChar1.SetActive(true);
-                dialogue.SetActive(true);
-                Char1Name.text = "Waifu 1";
-                Char1speech.text = "hallöchen was geht bruv";
-                Char2name.text = "";
-                Char2speech.text = "";
-                break;
-            case 7001:
-                Char1Name.text = "";
-                Char1speech.text = "";
-                Char2name.text = "Du";
-                Char2speech.text = "Eyyyyyyyy du coole waifu bitte lass mich in ruhe";
-                break;
-            case 7002:
-                Char1Name.text = "Waifu 1";
-                Char1speech.text = "ey du opfer komm mit jetzt";
-                Char2name.text = "";
-                Char2speech.text = "";
-                nextButton.SetActive(false);
-                allowSpace = false;
-                Choice1a.SetActive(true);
-                Choice1b.SetActive(true);
-                break;
-            case 100:
-                Char1Name.text = "Waifu 1";
-                Char1speech.text = "Das wahr die falsche entscheidung. die now!";
-                Char2name.text = "";
-                Char2speech.text = "";
-                nextButton.SetActive(false);
-                allowSpace = false;
-                NextScene1Button.SetActive(true);
-                break;
-            case 200:
-                Char1Name.text = "";
-                Char1speech.text = "";
-                Char2name.text = "Du";
-                Char2speech.text = "ich verpiss mich girl";
-                nextButton.SetActive(false);
-                allowSpace = false;
-                NextScene2Button.SetActive(true);
-                break;
-            default:
-                break;
-
         }
     }
 
@@ -213,12 +168,4 @@ public class DialougeDisplay1 : MonoBehaviour
         allowSpace = true;
     }
 
-    public void SceneChange1() {
-        SceneManager.LoadScene("Scenes/Scene2a");
-    }
-
-    public void SceneChange2() {
-        SceneManager.LoadScene("Scenes/Scene2b");
-    }
-    
 }
