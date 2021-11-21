@@ -122,6 +122,24 @@ public class DialougeDisplay1 : MonoBehaviour
                 Char2name.text = "";
                 Char2speech.text = "";
                 break;
+            case 10:
+                ArtChar1.SetActive(true);
+                Char1Name.text = "Du";
+                Char1speech.text = "Niemals! Nur über meine Leiche!";
+                Char2name.text = "";
+                Char2speech.text = "";
+                break;
+            case 11:
+                ArtChar1.SetActive(true);
+                Char1Name.text = "Space-Waifu";
+                Char1speech.text = "Das kannst du gerne haben! Du denkst du könntest meine space-love abwehren?" +
+                                   "Dann zeig mal was du kannst!";
+                Char2name.text = "";
+                Char2speech.text = "";
+                break;
+            case 12:
+                SceneManager.LoadScene("");
+                break;
             case 700:
                 ArtChar1.SetActive(true);
                 dialogue.SetActive(true);
