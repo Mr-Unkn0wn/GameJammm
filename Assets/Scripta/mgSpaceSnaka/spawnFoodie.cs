@@ -21,8 +21,7 @@ public class spawnFoodie : MonoBehaviour
     {
         int dx = (int) Random.Range(borderVerticalLeft.position.x, borderVerticalRight.position.x);
         int dy = (int) Random.Range(borderHorizontalBottom.position.y, borderHorizontalTop.position.y);
-
-        Instantiate(foodiePrefub, new Vector2(dx, dy), Quaternion.identity);  //default rotation
+        Instantiate(foodiePrefub, new Vector2(dx, dy), Quaternion.identity); //default rotation
     }
     void Update()
     {

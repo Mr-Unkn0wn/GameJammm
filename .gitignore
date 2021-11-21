@@ -59,3 +59,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 UserSettings/EditorUserSettings.asset
+ProjectSettings/EditorBuildSettings.asset
+ProjectSettings/EditorBuildSettings.asset
+ProjectSettings/TimelineSettings.asset
+ProjectSettings/TagManager.asset

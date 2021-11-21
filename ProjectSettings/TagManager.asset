@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Score
+  - SaveZone
+  - Health
   layers:
   - Default
   - TransparentFX

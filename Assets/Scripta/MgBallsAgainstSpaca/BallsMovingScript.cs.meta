@@ -3,7 +3,12 @@ guid: 0b4969b00fb2a46af81e838245ae965c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - firstSprite: {fileID: 21300000, guid: b4cf5ba1b448947a4b0bc3f1cec1432a, type: 3}
+  - secondSprite: {fileID: 21300000, guid: 4ee4785a81f7842eea3661695be0f989, type: 3}
+  - thirdSprite: {fileID: 21300000, guid: dbd64021a75f448ae8bec5f14fe6e195, type: 3}
+  - fourthSprite: {fileID: 21300000, guid: 95d87ff7d97c4404a92aa57c81f87e73, type: 3}
+  - fifthSprite: {fileID: 21300000, guid: 959565e34775740bc999b12a8c014169, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
