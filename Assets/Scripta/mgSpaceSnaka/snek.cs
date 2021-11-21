@@ -17,6 +17,7 @@ public class snek : MonoBehaviour
     public GameObject gameOverText;
     public GameObject tailPrefab;
     public GameObject foodiePrefab;
+    public GameObject continueButton;
     public Text scoreBoard;
     public bool isActive;
     public GameObject restartButton;
@@ -56,6 +57,7 @@ public class snek : MonoBehaviour
             restartButton.gameObject.SetActive(true);
             scoreBoard.GetComponent<UnityEngine.UI.Text>().text = "You win";
             foodiePrefab.SetActive(false);
+            continueButton.SetActive(true);
         }
     }
 

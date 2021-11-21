@@ -14,6 +14,6 @@ public class gameRestart : MonoBehaviour
 
     public void Continue()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("GameBallsFallin");
     }
 }
