@@ -2,6 +2,7 @@ using System.Collections;
 //these two are important for the tail algo to work
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 //-------------------------------------
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,7 @@ public class snek : MonoBehaviour
     public Text scoreBoard;
     public bool isActive;
     public GameObject restartButton;
+    private int winScore = 10;
     
     void Start()
     {
@@ -46,6 +48,14 @@ public class snek : MonoBehaviour
         if(Input.GetKey(KeyCode.DownArrow))
         {
             dir = -Vector2.up;
+        }
+
+        if (score == winScore)
+        {
+            Destroy(this);
+            restartButton.gameObject.SetActive(true);
+            scoreBoard.GetComponent<UnityEngine.UI.Text>().text = "You win";
+            foodiePrefab.SetActive(false);
         }
     }
 
@@ -84,7 +94,7 @@ public class snek : MonoBehaviour
             score += 1;
             scoreBoard.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
             Destroy(coll.gameObject);
-
+            
             Debug.Log("Score " + score);
             return;
         }
