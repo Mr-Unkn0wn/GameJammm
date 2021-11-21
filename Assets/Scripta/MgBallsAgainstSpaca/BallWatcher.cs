@@ -7,6 +7,7 @@ public class BallWatcher : MonoBehaviour
 {
     private float nextSpawnTime;
     private Int32 killedHearts;
+    public GameOverScreen gameOver;
     public GameObject circlePrefab;
     private List<GameObject> enemyList = new List<GameObject>();
     ShowStats statsHolder;
@@ -24,7 +25,15 @@ public class BallWatcher : MonoBehaviour
     {
         if (statsHolder.IsGameOver())
         {
-
+            if (!gameOver.IsActive())
+            {
+                gameOver.SetUp(statsHolder.GetScore());
+                for(int i = 0; i < enemyList.Count; i++)
+                {
+                    Destroy(enemyList[i]);
+                    enemyList.RemoveAt(i);
+                }
+            }
         }
         else
         {
@@ -42,12 +51,13 @@ public class BallWatcher : MonoBehaviour
                 {
                     Destroy(enemyList[index]);
                     enemyList.RemoveAt(index);
+                    killedHearts++;
                 }
                 else if (heartScript.hasHitted)
                 {
-                    statsHolder.TakeLife();
                     Destroy(enemyList[index]);
                     enemyList.RemoveAt(index);
+                    statsHolder.TakeLife();
                 }
             }
             if (Time.time > nextSpawnTime)

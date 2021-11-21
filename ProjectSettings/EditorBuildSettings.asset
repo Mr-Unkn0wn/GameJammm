@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/SpaceWaifuScenes/MainMenu.unity
+    guid: fe642ed9f321349249e69bfa121dc885
+  - enabled: 1
+    path: Assets/Scenes/SpaceWaifuScenes/SpaceWaifus.unity
+    guid: 965e7e4482db8484bb53452b5ccac496
+  - enabled: 1
+    path: Assets/Scenes/HifumiScene.unity
+    guid: 35d294716f846324abca9d0bcef8007d
+  - enabled: 1
+    path: Assets/Scenes/GameBallsFallin.unity
+    guid: bc4aaccbf2848488fab5b4832536a0ef
   m_configObjects: {}

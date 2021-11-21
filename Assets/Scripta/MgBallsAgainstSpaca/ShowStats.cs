@@ -64,5 +64,7 @@ public class ShowStats : MonoBehaviour
         score++;
     }
 
+    public int GetScore() => score;
+
     public Boolean IsGameOver() => currentShownLifes < 1;
 }
