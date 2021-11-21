@@ -19,4 +19,10 @@ public class GameOverScreen : MonoBehaviour
         gameObject.SetActive(true);
         scoreText.text = "Score : " + score;
     }
+
+    public void SetDown()
+    {
+        gameObject.SetActive(false);
+    }
+    
 }

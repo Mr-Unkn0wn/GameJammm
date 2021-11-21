@@ -21,6 +21,10 @@ public class PlattformMoving : MonoBehaviour
         }
         else
         {
+            if(!gameObject.activeInHierarchy)
+            {
+                gameObject.SetActive(true);
+            }
             float movementHor = Input.GetAxis("Horizontal");
             if (movementHor != 0.0)
             {

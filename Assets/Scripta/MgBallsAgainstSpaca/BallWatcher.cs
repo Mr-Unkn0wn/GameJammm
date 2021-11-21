@@ -7,6 +7,7 @@ public class BallWatcher : MonoBehaviour
 {
     private float nextSpawnTime;
     private Int32 killedHearts;
+    public GameObject player;
     public GameOverScreen gameOver;
     public GameObject circlePrefab;
     private List<GameObject> enemyList = new List<GameObject>();
@@ -91,5 +92,14 @@ public class BallWatcher : MonoBehaviour
         float yPosition = UnityEngine.Random.value * 4;
         GameObject nextObject = Instantiate(circlePrefab, new Vector3(xPosition, yPosition, 0), Quaternion.identity);
         return nextObject;
+    }
+
+    public void ResetGame()
+    {
+        statsHolder.ResetGame();
+        killedHearts = 0;
+        nextSpawnTime += 2.5f;
+        gameOver.SetDown();
+        player.SetActive(true);
     }
 }
