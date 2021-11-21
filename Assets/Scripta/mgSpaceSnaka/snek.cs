@@ -17,11 +17,12 @@ public class snek : MonoBehaviour
     public GameObject gameOverText;
     public GameObject tailPrefab;
     public GameObject foodiePrefab;
+    public GameObject continueButton;
     public Text scoreBoard;
     public bool isActive;
     public GameObject restartButton;
     private int winScore = 10;
-    
+
     void Start()
     {
         isActive = true;
@@ -33,19 +34,19 @@ public class snek : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             dir = Vector2.right;
         }
-        if(Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             dir = -Vector2.right;
         }
-        if(Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             dir = Vector2.up;
         }
-        if(Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             dir = -Vector2.up;
         }
@@ -56,11 +57,12 @@ public class snek : MonoBehaviour
             restartButton.gameObject.SetActive(true);
             scoreBoard.GetComponent<UnityEngine.UI.Text>().text = "You win";
             foodiePrefab.SetActive(false);
+            continueButton.SetActive(true);
         }
     }
 
     void Move()
-    {   
+    {
         //saves current pos in order to make a gap
         Vector2 currentPos = transform.position;
         //moves head to new pos
@@ -68,7 +70,7 @@ public class snek : MonoBehaviour
 
         if (ate)
         {
-            GameObject gameObject = (GameObject) Instantiate(tailPrefab, currentPos, Quaternion.identity);
+            GameObject gameObject = (GameObject)Instantiate(tailPrefab, currentPos, Quaternion.identity);
 
             tail.Insert(0, gameObject.transform);
 
@@ -79,27 +81,29 @@ public class snek : MonoBehaviour
         {
             //move last tail to the prev pos of head
             tail.Last().position = currentPos;
-            
-            
+
+
             //queue fron, pop tail
             tail.Insert(0, tail.Last());
             tail.RemoveAt(tail.Count - 1);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D coll) {
+    void OnTriggerEnter2D(Collider2D coll)
+    {
         if (coll.name.StartsWith("foodiePrefub"))
         {
             ate = true;
             score += 1;
             scoreBoard.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
             Destroy(coll.gameObject);
-            
+
             Debug.Log("Score " + score);
             return;
         }
         // Collided with Tail or Border
-        if (coll.name.StartsWith("border")){
+        if (coll.name.StartsWith("border"))
+        {
             Destroy(this);
             isActive = false;
             gameOverText.gameObject.SetActive(true);
