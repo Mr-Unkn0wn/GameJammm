@@ -16,6 +16,7 @@ public class DialougeDisplay1 : MonoBehaviour
     public Text Char3speech;
     public GameObject dialogue;
     public GameObject ArtChar1;
+    public GameObject ArtChar2;
     public GameObject ArtBG1;
     public GameObject Choice1a;
     public Text Choice1AText;
@@ -33,6 +34,7 @@ public class DialougeDisplay1 : MonoBehaviour
         
         dialogue.SetActive(false);
         ArtChar1.SetActive(false);
+        ArtChar2.SetActive(false);
         ArtBG1.SetActive(true);
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
@@ -56,6 +58,7 @@ public class DialougeDisplay1 : MonoBehaviour
         switch (primeInt) {
             case 1:
                 dialogue.SetActive(true);
+                ArtChar2.SetActive(true);
                 Char1Name.text = "";
                 Char1speech.text = "Auf der Suche nach deinem personal space bist du durch ein Wurmloch in eine ferne " +
                                    "Galaxie gereist. Während du dich nach geeigneten Planeten umschaust, fällt dir auf," +
@@ -99,6 +102,7 @@ public class DialougeDisplay1 : MonoBehaviour
                 break;
             case 7:
                 ArtChar1.SetActive(true);
+                ArtChar2.SetActive(false);
                 Char1Name.text = "???";
                 Char1speech.text = "HA? Personal space? Das wirst du hier nicht finden! Alles was es hier gibt, bin " +
                                    "ich. Deine personal space-waifu.";
@@ -106,7 +110,8 @@ public class DialougeDisplay1 : MonoBehaviour
                 Char2speech.text = "";
                 break;
             case 8:
-                ArtChar1.SetActive(true);
+                ArtChar1.SetActive(false);
+                ArtChar2.SetActive(true);
                 Char1Name.text = "Du";
                 Char1speech.text = "Oh nein... Nicht eine space waifu. Von euch habe ich schon gehört. Ihr verfolgt " +
                                    "arme Reisende solange, bis sie mit euch ein space-harem bilden! Der schlimmste " +
@@ -116,6 +121,7 @@ public class DialougeDisplay1 : MonoBehaviour
                 break;
             case 9:
                 ArtChar1.SetActive(true);
+                ArtChar2.SetActive(false);
                 Char1Name.text = "Space-Waifu";
                 Char1speech.text = "Vergiss es! Von dem bisschen personal space, den du noch besitzt kannst du dich " +
                                    "verabschieden. Ich werde von nun an für immer in deinem space-harem sein!";
@@ -123,7 +129,8 @@ public class DialougeDisplay1 : MonoBehaviour
                 Char2speech.text = "";
                 break;
             case 10:
-                ArtChar1.SetActive(true);
+                ArtChar1.SetActive(false);
+                ArtChar2.SetActive(true);
                 Char1Name.text = "Du";
                 Char1speech.text = "Niemals! Nur über meine Leiche!";
                 Char2name.text = "";
@@ -131,6 +138,7 @@ public class DialougeDisplay1 : MonoBehaviour
                 break;
             case 11:
                 ArtChar1.SetActive(true);
+                ArtChar2.SetActive(false);
                 Char1Name.text = "Space-Waifu";
                 Char1speech.text = "Das kannst du gerne haben! Du denkst du könntest meine space-love abwehren?" +
                                    "Dann zeig mal was du kannst!";
